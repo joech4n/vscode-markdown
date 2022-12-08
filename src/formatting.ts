@@ -365,7 +365,7 @@ function createLinkRegex(): RegExp {
     const domain_re = '(?:\\.(?!-)[a-z' + ul + '0-9-]{1,63}(?<!-))*';
 
     const tld_re = ''
-        + '\\.'                               // dot
+        + '\\.?'                              // dot
         + '(?!-)'                             // can't start with a dash
         + '(?:[a-z' + ul + '-]{2,63}'         // domain label
         + '|xn--[a-z0-9]{1,59})'              // or punycode label

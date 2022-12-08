@@ -137,4 +137,13 @@ suite("Formatting.", () => {
             ['[text](' + link + ')'], new Selection(0, 5, 0, 5)
         );
     });
+    test("Paste link on selected text. `|text|` -> `[text|](link)`", async () => {
+        const link = 'http://LinkWithNoTld';
+        await env.clipboard.writeText(link);
+
+        return testCommand('markdown.extension.editing.paste',
+            ['text'], new Selection(0, 0, 0, 4),
+            ['[text](' + link + ')'], new Selection(0, 5, 0, 5)
+        );
+    });
 });
